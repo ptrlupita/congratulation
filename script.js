@@ -61,6 +61,62 @@ function onPlayerError(event) {
   }
 }
 
+// Letter content templates dengan ucapan graduation yang dipecah menjadi paragraf
+const letterTemplates = {
+  colloquium: {
+    congratulations:
+      "🎉 Selamat yaa atas kolokiumnya!! Akhirnya sampai juga di tahap ini. Penelitian kamu keren banget, semua kerja keras dan begadangmu benar-benar terbayar. And I'm really, really proud of you!",
+    wishes: "Semangat terus buat ke depannya yaaa!!!",
+  },
+  thesis: {
+    congratulations:
+      "🎊 Selamat yaa atas sidang skripsinya! Ini merupakan suatu pencapaian yang luar biasa, dan aku, sebagai teman seperjuanganmu, merasa sangat-sangat bangga sama kamu. Setelah berbulan-bulan melakukan penelitian, setelah begadang dan revisi tanpa henti, akhirnya terbayar lunas hari ini. Kamu luar biasa!",
+    wishes:
+      "Semoga langkah-langkah berikutnya semakin lancar dan penuh keberhasilan. Aku yakin kamu akan terus bersinar dan bikin banyak perubahan baik ke depannya. Semangat terus yaaa!",
+  },
+  graduation: {
+    congratulations: [
+      "🎓 Selamat yaa atas kelulusannya... You did it! Kamu keren banget bisa sampai di tahap ini.",
+      
+      "Selama kurang lebih empat tahun, kamu telah belajar, menjalani praktikum, menghadapi ujian, dan melewati berbagai tantangan perkuliahan lainnya; semua itu membawamu sampai di titik ini, titik di mana ada gelar yang tersemat di belakang nama kamu.",
+      
+      "Aku memang tidak banyak tahu apa saja struggle yang kamu lewati selama kuliah. Mungkin kamu melewati banyak malam tanpa tidur, atau sering lupa makan karena terlalu sibuk menyelesaikan tugas atau laporan praktikum yang menumpuk. Aku juga tidak tahu seberapa berat beban yang harus kamu pikul, atau seberapa sering kamu merasa ingin menyerah.",
+      
+      "Tapi, satu hal yang aku tahu, kamu berhasil sampai di titik ini karena kekuatan kamu sendiri. Dan itu sudah lebih dari cukup untuk membuat aku, salah satu teman seperjuanganmu, merasa luar biasa bangga sama kamu. Kamu hebat. And I'm really, really proud of you."
+    ],
+    
+    appreciation: [
+      "Oh iya, aku juga mau mengucapkan terima kasih banyak atas semua kebaikan yang pernah kamu lakukan ke orang-orang di sekitar kamu, khususnya ke aku.",
+      
+      "Terima kasih banyak sudah mau menjadi teman aku. Terima kasih banyak sudah membantu aku selama di berkuliah di Geomatika, karena secara tidak langsung, bantuan kamu dapat membuat masa-masa terberat aku selama di Geomatika jadi terasa lebih ringan. Sekali lagi terima kasih banyak!",
+      
+      "Semoga setiap kebaikan dan pertolongan yang telah kamu berikan, akan kembali pada kamu suatu hari nanti, dengan cara yang paling indah dan tak terduga, karena apa yang kamu tanam dengan tulus, pasti akan tumbuh menjadi hal-hal baik di waktu yang tepat.",
+      
+      "Terima kasih sudah menjadi sosok yang begitu menginspirasi. Aku merasa sangat amat beruntung bisa melihat sebagian kecil dari perjalanan luar biasamu."
+    ],
+    
+    wishes: [
+      "Ketika kamu melangkah ke babak berikutnya dalam hidup kamu, apapun jalan yang kamu pilih, aku berharap segala hal baik selalu menyertai setiap langkahmu. Semoga kamu tetap bisa menjaga nyala api yang ada pada diri kamu, meskipun jalan yang kamu lewati tidak selalu mudah.",
+      
+      "Aku berharap kamu dapat menemukan ruang di dunia ini yang bisa kamu sebut 'rumah'. Sebuah tempat di mana kamu tidak hanya singgah, tetapi benar-benar berakar. Tempat di mana kamu dihargai bukan karena topeng yang kamu kenakan, tetapi karena jiwamu yang asli. Tempat di mana kamu dicintai tanpa syarat, dengan segala lebih dan kurangmu. Dan yang terpenting, tempat di mana kamu bisa menjadi dirimu sendiri sepenuhnya.",
+      
+      "Di tempat itu, kamu dapat bernapas dengan lega, tertawa lepas tanpa beban, dan menangis tanpa perlu merasa dihakimi.",
+      
+      "Definisi 'rumah' ini tidak selalu berwujud bangunan dengan empat dinding atau hanya tentang seorang pasangan. Bisa jadi 'rumah' yang kamu temukan itu berbentuk 'pekerjaan' yang membuatmu merasa terus bersemangat ketika memulai hari, di mana di pekerjaan tersebut, semua idemu didengar dan kontribusimu dihargai.",
+      
+      "Bisa jadi 'rumah' yang kamu temukan itu berbentuk 'lingkaran pertemanan' yang selalu mendukung mimpimu, sekecil apapun itu. Di lingkaran pertemanan tersebut, mereka tidak hanya hadir dalam hari-hari bahagiamu, tapi juga ikut serta menemani dan menawarkan bahu serta telinga saat kamu berduka atau saat kamu merasa dunia tidak lagi berpihak kepadamu.",
+      
+      "Bisa jadi 'rumah' yang kamu temukan itu berbentuk 'lingkungan atau komunitas' yang memeluk caramu berpikir, yang membuatmu merasa bertumbuh dan menjadi bagian dari sesuatu yang lebih besar.",
+      
+      "Mungkin juga 'rumah' itu berbentuk 'ketenangan' yang kamu ciptakan untuk dirimu sendiri, di mana kamu bisa berdamai dengan segala lebih dan kurangmu, baik dan burukmu, serta semua hal yang pernah membuatmu ragu pada dirimu sendiri.",
+      
+      "Aku berharap, kamu dapat menemukan 'rumah' tersebut, dalam bentuk apapun itu, karena sejatinya, semua orang berhak memiliki tempat di mana mereka bisa 'pulang'. Bukan hanya ke sebuah alamat, tetapi ke sebuah rasa tenang, rasa aman, dan rasa diterima sepenuhnya.",
+      
+      "Semoga semua harapan dan mimpi kamu perlahan menjadi kenyataan, satu per satu, dengan waktu yang tepat, dan usaha yang tidak pernah sia-sia."
+    ]
+  },
+};
+
 // DOM Elements
 document.addEventListener("DOMContentLoaded", function () {
   // Get DOM elements
@@ -79,41 +135,6 @@ document.addEventListener("DOMContentLoaded", function () {
   const musicToggle = document.getElementById("music-toggle");
   const musicIcon = document.getElementById("music-icon");
   const musicText = document.getElementById("music-text");
-
-  // Letter content templates
-  const letterTemplates = {
-    colloquium: {
-      congratulations:
-        "🎉 Selamat yaa atas kolokiumnya!! Akhirnya sampai juga di tahap ini. Penelitian kamu keren banget, semua kerja keras dan begadangmu benar-benar terbayar. And I'm really, really proud of you!",
-      wishes: "Semangat terus buat ke depannya yaaa!!!",
-    },
-    thesis: {
-      congratulations:
-        "🎊 Selamat yaa atas sidang skripsinya! Ini merupakan suatu pencapaian yang luar biasa, dan aku, sebagai teman seperjuanganmu, merasa sangat-sangat bangga sama kamu. Setelah berbulan-bulan melakukan penelitian, setelah begadang dan revisi tanpa henti, akhirnya terbayar lunas hari ini. Kamu luar biasa!",
-
-      wishes:
-        "Semoga langkah-langkah berikutnya semakin lancar dan penuh keberhasilan. Aku yakin kamu akan terus bersinar dan bikin banyak perubahan baik ke depannya. Semangat terus yaaa!",
-    },
-    graduation: {
-
-      congratulations:
-
-        "🎓 Selamat yaa atas kelulusannya... You did it! Kamu keren banget bisa sampai di tahap ini. Selama kurang lebih empat tahun, kamu telah belajar, menjalani praktikum, menghadapi ujian, dan melewati berbagai tantangan perkuliahan lainnya; semua itu membawamu sampai di titik ini, titik di mana ada gelar yang tersemat di belakang nama kamu. Aku memang tidak banyak tahu apa saja struggle yang kamu lewati selama kuliah. Mungkin kamu melewati banyak malam tanpa tidur, atau sering lupa makan karena terlalu sibuk menyelesaikan tugas atau laporan praktikum yang menumpuk. Aku juga tidak tahu seberapa berat beban yang harus kamu pikul, atau seberapa sering kamu merasa ingin menyerah. Tapi, satu hal yang aku tahu, kamu berhasil sampai di titik ini karena kekuatan kamu sendiri. Dan itu sudah lebih dari cukup untuk membuat aku, salah satu teman seperjuanganmu, merasa luar biasa bangga sama kamu. Kamu hebat. And I'm really, really proud of you.",
-
-      wishes:
-
-        "Ketika kamu melangkah ke babak berikutnya dalam hidup kamu, apapun jalan yang kamu pilih, aku berharap segala hal baik selalu menyertai setiap langkahmu. Semoga kamu tetap bisa menjaga nyala api yang ada pada diri kamu, meskipun jalan yang kamu lewati tidak selalu mudah. Aku berharap kamu dapat menemukan ruang di dunia ini yang bisa kamu sebut 'rumah'. Sebuah tempat di mana kamu tidak hanya singgah, tetapi benar-benar berakar. Tempat di mana kamu dihargai bukan karena topeng yang kamu kenakan, tetapi karena jiwamu yang asli. Tempat di mana kamu dicintai tanpa syarat, dengan segala lebih dan kurangmu. Dan yang terpenting, tempat di mana kamu bisa menjadi dirimu sendiri sepenuhnya.",
-
-"Di tempat itu, kamu dapat bernapas dengan lega, tertawa lepas tanpa beban, dan menangis tanpa perlu merasa dihakimi. Definisi 'rumah' ini tidak selalu berwujud bangunan dengan empat dinding atau hanya tentang seorang pasangan. Bisa jadi 'rumah' yang kamu temukan itu berbentuk 'pekerjaan' yang membuatmu merasa terus bersemangat ketika memulai hari, di mana di pekerjaan tersebut, semua idemu didengar dan kontribusimu dihargai. Bisa jadi 'rumah' yang kamu temukan itu berbentuk 'lingkaran pertemanan' yang selalu mendukung mimpimu, sekecil apapun itu. Di lingkaran pertemanan tersebut, mereka tidak hanya hadir dalam hari-hari bahagiamu, tapi juga ikut serta menemani dan menawarkan bahu serta telinga saat kamu berduka atau saat kamu merasa dunia tidak lagi berpihak kepadamu.",
-
-"Bisa jadi 'rumah' yang kamu temukan itu berbentuk 'lingkungan atau komunitas' yang memeluk caramu berpikir, yang membuatmu merasa bertumbuh dan menjadi bagian dari sesuatu yang lebih besar. Mungkin juga 'rumah' itu berbentuk 'ketenangan' yang kamu ciptakan untuk dirimu sendiri, di mana kamu bisa berdamai dengan segala lebih dan kurangmu, baik dan burukmu, serta semua hal yang pernah membuatmu ragu pada dirimu sendiri. Aku berharap, kamu dapat menemukan 'rumah' tersebut, dalam bentuk apapun itu, karena sejatinya, semua orang berhak memiliki tempat di mana mereka bisa 'pulang'. Bukan hanya ke sebuah alamat, tetapi ke sebuah rasa tenang, rasa aman, dan rasa diterima sepenuhnya. Semoga semua harapan dan mimpi kamu perlahan menjadi kenyataan, satu per satu, dengan waktu yang tepat, dan usaha yang tidak pernah sia-sia.",
-
-      appreciation:
-
-        "Oh iya, aku juga mau mengucapkan terima kasih banyak atas semua kebaikan yang pernah kamu lakukan ke orang-orang di sekitar kamu, khususnya ke aku. Terima kasih banyak sudah mau menjadi teman aku. Terima kasih banyak sudah membantu aku selama di berkuliah di Geomatika, karena secara tidak langsung, bantuan kamu dapat membuat masa-masa terberat aku selama di Geomatika jadi terasa lebih ringan. Sekali lagi terima kasih banyak! Semoga setiap kebaikan dan pertolongan yang telah kamu berikan, akan kembali pada kamu suatu hari nanti, dengan cara yang paling indah dan tak terduga, karena apa yang kamu tanam dengan tulus, pasti akan tumbuh menjadi hal-hal baik di waktu yang tepat. Terima kasih sudah menjadi sosok yang begitu menginspirasi. Aku merasa sangat amat beruntung bisa melihat sebagian kecil dari perjalanan luar biasamu.",
-
-    },
-  };
 
   // Music Control Functions
   function toggleMusic() {
@@ -151,6 +172,14 @@ document.addEventListener("DOMContentLoaded", function () {
       musicIcon.textContent = "🎶";
       musicText.textContent = "Play Music";
     }
+  }
+
+  // Function to format text array into HTML paragraphs
+  function formatTextArray(textArray) {
+    if (Array.isArray(textArray)) {
+      return textArray.map(text => `<p>${text}</p>`).join('');
+    }
+    return `<p>${textArray}</p>`;
   }
 
   // Event Listeners
@@ -195,10 +224,16 @@ document.addEventListener("DOMContentLoaded", function () {
     // Get the appropriate template
     const template = letterTemplates[achievement];
 
-    // Set the letter content
-    congratulationsText.textContent = template.congratulations;
-    appreciationText.textContent = template.appreciation;
-    futureWishesText.textContent = template.wishes;
+    // Set the letter content based on achievement type
+    if (achievement === 'graduation') {
+      congratulationsText.innerHTML = formatTextArray(template.congratulations);
+      appreciationText.innerHTML = formatTextArray(template.appreciation);
+      futureWishesText.innerHTML = formatTextArray(template.wishes);
+    } else {
+      congratulationsText.innerHTML = `<p>${template.congratulations}</p>`;
+      appreciationText.innerHTML = template.appreciation ? `<p>${template.appreciation}</p>` : '';
+      futureWishesText.innerHTML = `<p>${template.wishes}</p>`;
+    }
 
     // Show letter page with animation
     landingPage.classList.add("hidden");
