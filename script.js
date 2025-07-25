@@ -76,9 +76,9 @@ const letterTemplates = {
   },
   graduation: {
     congratulations: [
-      "🎓 Selamat yaa atas kelulusannya... You did it! Kamu keren banget bisa sampai di tahap ini.",
+      "🎓 Selamat yaa atas kelulusan dan wisudamu... You did it! Kamu keren banget bisa sampai di tahap ini.",
       
-      "Selama kurang lebih empat tahun, kamu telah belajar, menjalani praktikum, menghadapi ujian, dan melewati berbagai tantangan perkuliahan lainnya; semua itu membawamu sampai di titik ini, titik di mana ada gelar yang tersemat di belakang nama kamu.",
+      "Selama kurang lebih empat tahun, kamu telah melalui berbagai proses yang tidak mudah—dari kuliah, praktikum, tugas, hingga ujian yang silih berganti. Semua kerja keras dan ketekunan itu telah mengantarkanmu ke titik ini, titik di mana sebuah gelar telah resmi tersemat di belakang namamu.",
       
       "Aku memang tidak banyak tahu apa saja struggle yang kamu lewati selama kuliah. Mungkin kamu melewati banyak malam tanpa tidur, atau sering lupa makan karena terlalu sibuk menyelesaikan tugas atau laporan praktikum yang menumpuk. Aku juga tidak tahu seberapa berat beban yang harus kamu pikul, atau seberapa sering kamu merasa ingin menyerah.",
       
