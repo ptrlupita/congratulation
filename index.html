@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Congratulations Letter</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Music Control -->
+    <div class="music-control">
+      <button id="music-toggle" class="music-btn">
+        <span id="music-icon">🎵</span>
+        <span id="music-text">Play Music</span>
+      </button>
+    </div>
+
+    <!-- Hidden YouTube Player -->
+    <div id="youtube-player" style="display: none"></div>
+
+    <!-- Landing Page with Name Input -->
+    <div id="landing-page" class="page">
+      <div class="container">
+        <div class="welcome-section">
+          <h1 class="main-title">🎓 Congratulations!
+          <p class="subtitle">
+            A personal collection of words for those who made it through with strength and heart.
+          </p>
+
+          <div class="input-section">
+            <label for="name-input">Tulis Namamu: </label>
+            <input
+              type="text"
+              id="name-input"
+              placeholder="e.g., Lupi"
+              autocomplete="off"
+            />
+
+            <label for="achievement-select">Pilih Pencapaianmu:</label>
+            <select id="achievement-select">
+              <option value="colloquium">Kolokium/Seminar Hasil</option>
+              <option value="thesis">Sidang Skripsi</option>
+              <option value="graduation">Wisuda</option>
+            </select>
+
+            <button id="generate-btn">Generate Letter ✨</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Letter Page -->
+    <div id="letter-page" class="page hidden">
+      <div class="letter-container">
+        <div class="letter-header">
+          <div class="decorative-border"></div>
+          <h1 class="letter-title">Congratulations!</h1>
+          <div class="decorative-border"></div>
+        </div>
+
+        <div class="letter-content">
+          <div class="greeting">
+            <p>
+              Dear <span id="recipient-name" class="highlight-name"></span>,
+            </p>
+          </div>
+
+          <div class="main-message">
+            <p id="congratulations-text"></p>
+
+            <p id="future-wishes-text"></p>
+
+            <p id="appreciation-text"></p>
+          </div>
+
+          <div class="closing">
+            <p>
+              With love, deep admiration, and all the good prayers I can send
+              your way,
+            </p>
+            <p class="signature">Lupita 💝</p>
+          </div>
+        </div>
+
+        <div class="letter-footer">
+          <button id="back-btn" class="back-button">View Other Letters</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- YouTube API -->
+    <script src="https://www.youtube.com/iframe_api"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
